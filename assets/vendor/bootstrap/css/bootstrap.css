@@ -3825,7 +3825,9 @@ textarea.form-control-lg {
   display: flex;
   flex-wrap: wrap;
   padding-left: 0;
+  /* padding-right: 10; */
   margin-bottom: 0;
+  /* margin-right: 100; */
   list-style: none;
 }
 
