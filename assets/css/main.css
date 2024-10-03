@@ -63,6 +63,25 @@
   scroll-behavior: smooth;
 }
 
+.code-box {
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  padding: 15px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  text-align: left;
+  line-height: 1.5;
+  white-space: pre-wrap; /* Allows code to wrap */
+  overflow-x: auto; /* Horizontal scroll if content overflows */
+  overflow-y: auto; /* Vertical scrolling if needed */
+  max-height: 500px; /* Maximum height of the box */
+  border-radius: 5px;
+}
+
+.sql-template-word {
+  color: #fffff;
+}
+
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/

@@ -133,7 +133,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-      <h2>Graphical Tool</h2>
+        <h4>Richard Taylor</h4>
+        <h2>Graphical Tool</h2>
       <h3>Problem</h3>
       <p>
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
@@ -426,7 +427,9 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-      <h2>Schema Generation</h2>
+        <h4>Stephan Maree</h4>
+        <h2>Schema Generation</h2>
+      
       <h3>Problem</h3>
       <p>
       Support for temporal data in Database Management Systems (DBMSs) is still quite limited. 
@@ -440,7 +443,8 @@
       The SQL file will contain all the table definitions and triggers, ready for use in a DBMS and enforcing the temporal transitions of TREND.
       This was implemented in MariaDB, as it is open source and free.
       MariaDB also implements the majority of SQL:2011's temporal features and gives the user more expressive queries for interacting with temporal data.
-      </p> <br>
+      The development of the project can be broken into two parts: developing the algorithm and designing the temporal triggers. 
+    </p> <br>
       <div class="grid-container">
         <div class="grid-child purple">
             <h3>Algorithm</h3>
@@ -448,7 +452,66 @@
         </div>
         <div class="grid-child green">
             <h3>Temporal Triggers</h3>
-            <p>Lorem ipsum stuff more I guess</p>
+            <p>
+            Enforcing the temporal constraints of TREND was done by designing unique SQL triggers that prevent the insertion of any data that violates the semantics of TREND.
+            <div class="code-box">
+              <pre><code>CREATE TRIGGER A_chg_to_B_1
+BEFORE INSERT ON B
+FOR EACH ROW
+  BEGIN
+  DECLARE initial_exists INT;
+  DECLARE overlap_count INT;
+  SELECT COUNT (*)
+  INTO initial_exists
+  FROM A
+  WHERE NEW.BID = AID
+    AND NEW.B_start >= A_end;
+  SELECT COUNT (*)
+  INTO overlap_count
+  FROM A
+  WHERE NEW.BID = AID
+    AND (
+      (NEW.B_end > A_start AND NEW.B_start <= A_start)
+    OR
+      (NEW.B_end >= A_end AND NEW.B_start < A_end)
+    OR
+      (NEW.B_start >= A_start AND NEW.B_end <= A_end)
+    );
+  IF overlap_count > 0 THEN
+  SIGNAL SQLSTATE '45000'
+  SET MESSAGE_TEXT = 'B cannot overlap with A.';
+  END IF;
+  IF initial_exists = 0 THEN
+  SIGNAL SQLSTATE '45000'
+  SET MESSAGE_TEXT = 'B must have been in A before.';
+  END IF;
+END;
+//
+                
+CREATE TRIGGER A_chg_to_B_2
+BEFORE INSERT ON A
+FOR EACH ROW
+BEGIN
+  DECLARE initial_exists INT;
+  SELECT COUNT (*)
+  INTO initial_exists
+  FROM B
+  WHERE NEW.AID = BID
+    AND (
+      (NEW.A_end > B_start AND NEW.A_start <= B_start)
+      OR
+      (NEW.A_end >= B_end AND NEW.A_start < B_end)
+      OR
+      (NEW.A_start >= B_start AND NEW.A_end <= B_end)
+    );
+  IF initial_exists > 0 THEN
+    SIGNAL SQLSTATE '45000'
+    SET MESSAGE_TEXT = 'A has already changed into B.';
+  END IF;
+END;
+              </code></pre>
+            </div>
+          </p>
         </div>
     </div>
 
@@ -520,11 +583,10 @@
                 </svg>
                 <i class="bi bi-download"></i>
               </div>
-              <a href="#" class="stretched-link">
+              <a href="/assets/downloads/MRXSTE013_Final.pdf" class="stretched-link" download>
                 <h3>Schema Generation: Project Report</h3>
               </a>
               <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="#" class="stretched-link"></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -540,7 +602,6 @@
                 <h3>Graphical Tool: Literature Review </h3>
               </a>
               <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="#" class="stretched-link"></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -552,11 +613,10 @@
                 </svg>
                 <i class="bi bi-download"></i>
               </div>
-              <a href="#" class="stretched-link">
+              <a href="/assets/downloads/Schema_Literature_Review.pdf" class="stretched-link" download>
                 <h3>Schema Generation: Literature Review</h3>
               </a>
               <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="#" class="stretched-link"></a>
             </div>
           </div><!-- End Service Item -->
 
@@ -583,7 +643,7 @@
       </div>
       <div class="container">
         <div class="copyright">
-          <span>Copyright</span> <strong class="px-1 sitename">No One</strong> <span>All Rights Reserved</span>
+          <span>Copyright</span> <strong class="px-1 sitename">Stephan Maree</strong> <span>All Rights Reserved</span>
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->
