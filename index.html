@@ -451,9 +451,38 @@
             <p>Lorem ipsum stuff I guess</p>
         </div>
         <div class="grid-child green">
-            <h3>Temporal Triggers</h3>
-            <p>
-            Enforcing the temporal constraints of TREND was done by designing unique SQL triggers that prevent the insertion of any data that violates the semantics of TREND.
+            <h3>Temporal Tables/Triggers</h3>
+            <p>When an entity is labelled as temporal, two columns are added at the end of the table.
+            These are named <em>name</em>_start and <em>name</em>_end, where <em>name</em> is the <em>name</em> of the table.
+            They use the DATE datatype, and are included as part of the primary key.
+            This implementation follows the SQL:2011 standard for temporal data.
+            The period between the start and the end is labelled as unique and overlaps are disabled.
+            The following table is an example of a temporal entity named "Student".
+            </p>
+            <table>
+              <h5>Student</h5>
+              <tr>
+                <th>StudentID <i class="bi bi-key"></i></th>
+                <th>Name</th>
+                <th>Student_Start <i class="bi bi-key"></i></th>
+                <th>Student_End <i class="bi bi-key"></i></th>
+              </tr>
+              <tr>
+                <td>MRXSTE013</td>
+                <td>Stephan Maree</td>
+                <td>2020-01-01</td>
+                <td>2024-01-01</td>
+              </tr>
+              <tr>
+                <td>TYLRIC007</td>
+                <td>Richard Taylor</td>
+                <td>2019-01-01</td>
+                <td>2024-01-01</td>
+              </tr>
+            </table>
+            <br>
+            <p>Enforcing the temporal constraints of TREND was done by designing unique SQL triggers that prevent the insertion of any data that violates the semantics of TREND.
+
             <div class="code-box">
               <pre><code>CREATE TRIGGER A_chg_to_B_1
 BEFORE INSERT ON B

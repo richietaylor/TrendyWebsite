@@ -78,10 +78,6 @@
   border-radius: 5px;
 }
 
-.sql-template-word {
-  color: #fffff;
-}
-
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
@@ -100,6 +96,22 @@ a {
 a:hover {
   color: color-mix(in srgb, var(--accent-color), transparent 25%);
   text-decoration: none;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #474747;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(1) {
+  background-color: #dddddd;
 }
 
 h1,
