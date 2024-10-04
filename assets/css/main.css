@@ -55,7 +55,7 @@
 .grid-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  grid-gap: 50px;
 }
 
 /* Smooth scroll */
@@ -74,7 +74,7 @@
   white-space: pre-wrap; /* Allows code to wrap */
   overflow-x: auto; /* Horizontal scroll if content overflows */
   overflow-y: auto; /* Vertical scrolling if needed */
-  max-height: 500px; /* Maximum height of the box */
+  max-height: 400px; /* Maximum height of the box */
   border-radius: 5px;
 }
 

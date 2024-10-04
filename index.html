@@ -459,7 +459,25 @@
               <li>Inheritance Processing</li>
               <li>Entity Sorting</li>
             </p> <br>
-            <p>First, the nodes are processed and entity, attribute, relationship, and inheritance objects are made. The interactions between these are processed with the edges. The TREND temporal transitions are also found in this step.</p>
+            <p>First, the nodes are processed and entity, attribute, relationship, and inheritance objects are made. 
+              The interactions between these nodes are processed with the edges. 
+              The TREND temporal transitions are also identified in this step.
+              </p><br><p>
+              After this the relationships are processed. 
+              Foreign keys are added to tables in one-to-one and one-to-many relationships, while many-to-many relationships gain their own tables.
+              </p><br><p>
+              Inheritance constraints are then considered, passing along the primary keys from the parents to the children.
+              If the inheritance is disjoint and complete, the parent entity does not get its own table, instead passing all of its attributes to its children.
+            </p><br><p>
+              Finally, the entities are sorted to prevent tables with foreign keys being created before the table who the foreign key belongs to.
+              </p> <br>
+              <p>
+                Each component of the algorithm, except for entity sorting, scales linearly with the size of the input. This means that the time taken for node processing, edge processing, relationship handling, and inheritance constraints grows directly in proportion to the number of nodes, edges, and relationships in the model. 
+                Entity sorting is done using a merge sort algorithm, which scales log linearly with input size.
+                
+              </p><br><p>
+                After all the objects are created, the SQL code for each of these is written to a file which is downloaded to the user's device, ready to be used instantly in a MariaDB database.
+                </p>
         </div>
         <div class="grid-child green">
             <h3>Temporal Tables/Triggers</h3>
@@ -551,8 +569,7 @@ BEGIN
     SIGNAL SQLSTATE '45000'
     SET MESSAGE_TEXT = 'A has already changed into B.';
   END IF;
-END;
-              </code></pre>
+END;</code></pre>
             </div> 
             <br>
             <p>This can be understood as enforcing that "Each object in <em>B</em> must have been in <em>A</em>, but is no longer in <em>A</em>".
@@ -561,7 +578,18 @@ END;
             </p>
         </div>
     </div>
-
+    <br>
+    <h3>Results and Conclusion</h3>
+    <p>
+      The software produced is able to efficiently and correctly generate
+      SQL code for databases from a TREND model. The testing of the
+      schema generation algorithm shows great promise in terms of robustness, and the comparisons with the TREND semantics indicate
+      that the temporal transition constraints are correctly implemented.
+      Using a planned and iterative development approach, this software project produced a tool that can generate complex temporal
+      databases from a TREND model. This removes the need for developers to implement advanced temporal features in the application logic, saving
+      people and organisations development costs and time.
+      The software is expected to reduce the barrier to entry of temporal databases and helping to realise Trend as the preferred Temporal Conceptual Data Model
+      in research and industry.</p>
       </div><!-- End Section Title -->
 
     <!-- Services Section -->
