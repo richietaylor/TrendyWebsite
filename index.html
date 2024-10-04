@@ -448,7 +448,9 @@
       <div class="grid-container">
         <div class="grid-child purple">
             <h3>Algorithm</h3>
-            <p>Lorem ipsum stuff I guess</p>
+            <p>In order to convert from a TREND model to SQL code, the serialisation needs to be algorithmically processed into data structures representing the final tables.
+              The input of the program is a list of nodes and a list of edges, and these would need to be efficiently converted into objects which allow for writing SQL code. 
+            </p>
         </div>
         <div class="grid-child green">
             <h3>Temporal Tables/Triggers</h3>
@@ -481,7 +483,10 @@
               </tr>
             </table>
             <br>
-            <p>Enforcing the temporal constraints of TREND was done by designing unique SQL triggers that prevent the insertion of any data that violates the semantics of TREND.
+            <p>
+            Enforcing the temporal constraints of TREND was done by designing unique SQL triggers that prevent the insertion of any data that violates the semantics of TREND.
+            Given two entities, <em>A</em> and <em>B</em> with identifiers <em>AID</em> and <em>BID</em>, a mandatory past evolution from <em>A</em> to <em>B</em> will have the following SQL triggers written for it:  
+            </p>
 
             <div class="code-box">
               <pre><code>CREATE TRIGGER A_chg_to_B_1
@@ -539,8 +544,12 @@ BEGIN
   END IF;
 END;
               </code></pre>
-            </div>
-          </p>
+            </div> 
+            <br>
+            <p>This can be understood as enforcing that "Each object in <em>B</em> must have been in <em>A</em>, but is no longer in <em>A</em>".
+              Temporal referential integrity is also enforced using triggers, meaning that you can't have a temporal relationship existing during a period when one of its entities don't. 
+              This is applied whenever two temporal elements reference each other directly. 
+            </p>
         </div>
     </div>
 
