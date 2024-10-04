@@ -45,7 +45,7 @@
     <nav id="navmenu" class="navmenu">
       <ul>
         <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i><span>Home</span></a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i><span>Background</span></a></li>
+        <li><a href="#about"><i class="bi bi-clock navicon"></i><span>Background</span></a></li>
         <li><a href="#portfolio"><i class="bi bi-images navicon"></i><span>Graphical Tool</span></a></li>
         <li><a href="#services"><i class="bi bi-database"></i><span>Schema Generation</span></a></li>
         <li><a href="#contact"><i class="bi bi-download navicon"></i><span>Deliverables</span></a></li>
@@ -94,63 +94,27 @@
           along with The unified modelling language (UML), however these
           do not allow for effective modelling for temporal data. 
           The structure of a temporal database can be modelled using a Temporal Conceptual Data Modelling Language (TCDML), however there isn't currently a standard language for modelling temporal databases.</p>
-        
           <br>
+          <div class="section-title">
+            <h3>TREND</h3>
+            <p>TREND (<strong>T</strong>emporal <strong>RE</strong>lation <strong>N</strong>etwork <strong>D</strong>esign) is a specialized conceptual data modeling language based of the ER Diagram and is designed to effectively represent and manage temporal data within databases. TREND implements its temporal extensions through the core constraints of dynamic extension and dynamic evolution. These constraints outline the primary ways in which temporal entities in a model can change over time.</p>
+          </div>
+          <div style="text-align: left;">
+          <ul>
+            <li><strong>Dynamic Extension (EXT/ext):</strong> The extended entity remains an instance of the original entity. For example, an Employee may get promoted to Manager but still stays an Employee.</li>
+            <li><strong>Dynamic Evolution (CHG/chg):</strong> The extended entity is no longer the same instance as the entity it has extended from. For example, in a law firm, when an Article Clerk becomes a lawyer, it stops being an Article Clerk.</li>
+            <li><strong>Icons:</strong> Temporal entities are labeled with a clock icon, while atemporal entities (legacy ER/EER entities) are labeled without a clock.</li>
+            <li><strong>Mandatory or Optional:</strong> Mandatory temporal constraints (that must have occurred in the past or must occur in the future) are denoted by a solid line, and optional constraints (that may happen in the future or could’ve happened in the past) are denoted by a dashed line.</li>
+            <li><strong>Past or Future:</strong> If a temporal constraint is on a past condition, lowercase letters are used (i.e., chg, ext), and capital letters are used (i.e., CHG, EXT) for future constraints.</li>
+            <li><strong>Quantitative:</strong> If a constraint has a quantitative value attached to it (for example, an employee must have been an assistant-manager for 2 years before becoming a manager), that value is displayed in time chronon next to the constraint type.</li>
+          </ul>
+        </div>
       </div><!-- End Section Title -->
 
       <!-- TREND Temporal Extensions Section -->
 <section id="temporal-extensions" class="temporal-extensions section">
   <div class="container" data-aos="fade-up">
-    <div class="section-title">
-      <h3>TREND</h3>
-      <p>Understanding how TREND handles temporal data is crucial for effective temporal conceptual data modeling. This section outlines the core constraints of dynamic extension and dynamic evolution, along with important notation distinctions used within TREND.</p>
-    </div>
     
-    <!-- Core Constraints -->
-    <div class="row gy-4">
-      
-      <!-- Dynamic Extension -->
-      <div class="col-lg-12">
-        <!-- <h3>Dynamic Extension (EXT/ext)</h3> -->
-        <p>TREND implements its temporal extensions through the core constraints of dynamic extension and dynamic evolution. These constraints outline the primary ways in which temporal entities in a model can change over time.</p>
-        <!-- <p><strong>Dynamic Extension (EXT/ext):</strong> The extended entity remains an instance of the original entity. For example, an Employee may get promoted to Manager but still stays an Employee.</p> -->
-      </div>
-      
-
-      
-      <!-- Notation Distinctions -->
-      <div class="col-lg-12">
-        <!-- <h3>Notation Distinctions</h3> -->
-        <ul>
-          <li><strong>Dynamic Extension (EXT/ext):</strong> The extended entity remains an instance of the original entity. For example, an Employee may get promoted to Manager but still stays an Employee.</li>
-          <li><strong>Dynamic Evolution (CHG/chg):</strong> The extended entity is no longer the same instance as the entity it has extended from. For example, in a law firm, when an Article Clerk becomes a lawyer, it stops being an Article Clerk.</li>
-          <li><strong>Icons:</strong> Temporal entities are labeled with a clock icon, while atemporal entities (legacy ER/EER entities) are labeled without a clock.</li>
-          <li><strong>Mandatory or Optional:</strong> Mandatory temporal constraints (that must have occurred in the past or must occur in the future) are denoted by a solid line, and optional constraints (that may happen in the future or could’ve happened in the past) are denoted by a dashed line.</li>
-          <li><strong>Past or Future:</strong> If a temporal constraint is on a past condition, lowercase letters are used (i.e., chg, ext), and capital letters are used (i.e., CHG, EXT) for future constraints.</li>
-          <li><strong>Quantitative:</strong> If a constraint has a quantitative value attached to it (for example, an employee must have been an assistant-manager for 2 years before becoming a manager), that value is displayed in time chronon next to the constraint type.</li>
-        </ul>
-      </div>
-      
-      <!-- Figure 1: ER Diagram Extended by TREND -->
-      <div class="col-lg-12">
-        <!-- <h3>Figure 1: ER Diagram Extended by TREND</h3> -->
-        <div class="row align-items-center">
-          
-          <!-- Image Column -->
-          <div class="col-lg-6 mb-3">
-            <img src="https://via.placeholder.com/600x400?text=Figure+1:+ER+Diagram+Extended+by+TREND" class="img-fluid rounded" alt="Figure 1: ER Diagram Extended by TREND">
-          </div>
-          
-          <!-- Description Column -->
-          <div class="col-lg-6">
-            <p><strong>Left:</strong> ER diagram extended by TREND.</p>
-            <p>Objects that can change with time (such as an employee’s office) are labeled as temporal elements with the clock icon. Employees can potentially, over time, become managers, and to be a manager, they must have been an employee first. This is represented by past mandatory and future optional dynamic extensions, with the relationships also extended. A manager can also optionally become a Board Member over time, which is not an instance of a manager, thus represented by a future optional dynamic evolution. Note that no graphical modeling tool exists for TREND specifically, and this example was created manually without the help of a graph validator.</p>
-          </div>
-        
-        </div>
-      </div>
-      
-    </div>
   </div>
 </section><!-- /TREND Temporal Extensions Section -->
 
@@ -167,85 +131,73 @@
       </p> <br>
       <h3>Aim</h3>
       <p>
-        The primary aim of this project is to design and develop TRENDy, a dedicated graphical modeling tool tailored specifically for the TREND Temporal Conceptual Data Modelling Language. 
+        The primary aim of this project is to design and develop TRENDy, a dedicated graphical modeling tool tailored specifically for the TREND Temporal Conceptual Data Modelling Language. The completed tool can be found <a href="https://trendy-blue.vercel.app/" target="_blank">here</a>.
       </p> <br>
-      <div class="grid-container">
-        <div class="grid-child purple">
-            <h3>Section</h3>
-            <p>Lorem ipsum stuff I guess</p>
-        </div>
-        <div class="grid-child green">
-            <h3>Section</h3>
-            <p>Lorem ipsum stuff more I guess</p>
-        </div>
-    </div>
 
+      <img src="/assets/img/full.png" class="img-fluid rounded" alt="Full UI">
       </div><!-- End Section Title -->
 
-    </section><!-- /Services Section -->
 
-<!-- Features Section -->
-<section id="features" class="features section">
+
   <div class="container" data-aos="fade-up">
-    <div class="section-title">
-      <h2>Final Program Features</h2>
-      <p>This section contains a comprehensive list of final program features that were implemented to satisfy the design requirements.</p>
-    </div>
     <div class="row gy-4 justify-content-center">
       
       <!-- Feature 4.2.1 Infinitely Expanding Canvas -->
       <div class="col-lg-12">
-        <h3>Infinitely Expanding Canvas</h3>
+        <div style="text-align: center;">
+        <h3>Features</h3>
+      </div>
+        <h4>Infinitely Expanding Canvas</h4>
         <p>As a space to build your models, an infinitely expanding canvas has been added, where nodes and edges can be dropped, moved, and edited. Basic zooming and panning functionalities have also been added to navigate the canvas.</p>
       </div>
 
       <!-- Feature 4.2.2 Dragging and Dropping of TREND Compatible Objects -->
       <div class="col-lg-12">
-        <h3>Dragging and Dropping of TREND Compatible Objects</h3>
+        <h4>Dragging and Dropping of TREND Compatible Objects</h4>
         <p>As part of implementing the conceptual data modelling functionality, a shape node palette has been added. This contains all the necessary entities, attributes, and relationships you need to model in TREND. An advantage of this palette over the palettes of alternative tools is that there is no way to add objects that are not part of TREND. This restriction prevents many user errors.</p>
       </div>
 
       <!-- Feature 4.2.3 Resizing and Renaming of Nodes -->
       <div class="col-lg-12">
-        <h3>Resizing and Renaming of Nodes</h3>
+        <h4>Resizing and Renaming of Nodes</h4>
         <p>Once a node has been added to the canvas, you can change the label of the node to give it your desired name. Additionally, if your label is too long for the node, you can resize the node to your liking too.</p>
       </div>
 
       <!-- Feature 4.2.4 Ability to Connect Objects -->
       <div class="col-lg-12">
-        <h3>Ability to Connect Objects</h3>
+        <h4>Ability to Connect Objects</h4>
         <p>Each object added to the screen has 4 drag handles (top, bottom, left, and right). When dragging from one of these drag handles to another, an edge is made to connect these objects together.</p>
         <p>When selecting an edge, an edge option menu is displayed. This menu has all the necessary options to customize the edge to any edge the user desires in the TREND language. There are three main edge types: Atemporal (default), temporal, and subsumption. After selecting an edge type, the user then has access to other options to further customize their line (e.g., cardinality and persistence).</p>
       </div>
 
       <!-- Feature 4.2.5 Schema Generation Tool -->
       <div class="col-lg-12">
-        <h3>Schema Generation Tool</h3>
+        <h4>Schema Generation Tool</h4>
         <p>This feature needed to be able to convert the models we have developed in the user interface directly into a database schema. This feature was actually developed by my project partner, Stephan Maree, so for this tool, integration with the schema generation tool was necessary. A button called "Schema Generation" is added to the UI, and when pressed, it sends a JSON object with the nodes and edges serialization (described in the design section) to the schema generation tool, which then controls the conversion and downloads the schema for the user. Since our tool used almost identical serializations, the JSON object can be used by the schema generation tool with little processing done on the receiver side.</p>
       </div>
 
       <!-- Feature 4.2.6 Saving and Loading of Models -->
       <div class="col-lg-12">
-        <h3>Saving and Loading of Models</h3>
+        <h4>Saving and Loading of Models</h4>
         <p>Due to the Model-View-Controller design of this tool, the model information is independent from the rest of the code. This allows the program to add the ability to load and save models. When clicking the Save button, the tool creates a JSON object and saves it to the user’s computer. When clicking the Browse button, the user is given a prompt to select the file they would like to upload, and then the tool loads in the JSON object to the canvas. If the model that is uploaded to the program has an incorrect format (i.e., it was edited outside of the graphical tool), then the tool will do its best to display as many correctly formatted objects on-screen as possible, and displays a relevant error to the user.</p>
       </div>
 
       <!-- Feature 4.2.7 State Management -->
       <div class="col-lg-12">
-        <h3>State Management</h3>
+        <h4>State Management</h4>
         <p>To implement the undo and redo functionalities requirements, a state management system has been implemented. This gives the user the ability to undo and redo actions done in your model, including but not limited to: resizing, adding elements, editing labels, and changing features about an edge. The main strategy in implementing this surrounds the <code>takeSnapshot()</code> function in the UndoRedo class. After the model is changed (e.g., label name is changed, edge is added, edge is changed), the model state is saved as a snapshot, and using the <code>CTRL+Z</code> and <code>CTRL+Y</code> shortcuts navigates us between these snapshots. This strategy works as the serialization has a very small file size, thus multiple snapshots can be easily stored without any storage or performance concerns.</p>
       </div>
 
       <!-- Feature 4.2.8 Full Keyboard Shortcut Support -->
       <div class="col-lg-12">
-        <h3>Full Keyboard Shortcut Support</h3>
+        <h4>Full Keyboard Shortcut Support</h4>
         <p>Shortcut support is not natively supported in the ReactFlow library, so they had to be manually implemented. Shortcuts for features of deleting elements (<code>DEL</code>), saving files (<code>CTRL+S</code>), selecting all elements (<code>CTRL+A</code>), copying selected elements (<code>CTRL+C</code>), cutting selected elements (<code>CTRL+X</code>), pasting copied elements (<code>CTRL+V</code>), undo (<code>CTRL+Z</code>), and redo (<code>CTRL+Y</code>) were implemented. These shortcuts were purposely chosen as they are commonplace amongst most computer tools, thus there would be an expectation from the user for them to be supported.</p>
-        <p>Additionally, this meant the user would not have to learn the shortcuts, and instead discover them naturally, lowering the time taken to learn the tool. Deletion created a unique bug, as when nodes were deleted, the IDs of nodes could potentially be duplicates, and this caused problems for Stephan’s project, and occasionally some visual bugs. This meant that the management of IDs for nodes had to be rethought so that they were always unique.</p>
+        <p>Additionally, this meant the user would not have to learn the shortcuts, and instead discover them naturally, lowering the time taken to learn the tool.</p>
       </div>
 
       <!-- Feature 4.2.9 Exporting Models -->
       <div class="col-lg-12">
-        <h3>Exporting Models</h3>
+        <h4>Exporting Models</h4>
         <p>As requested by our experienced modelers, the ability to export our models as screenshots was added to the tool. An "Export" button triggers this feature.</p>
       </div>
 
@@ -254,14 +206,14 @@
         <div class="row align-items-start">
           <!-- Text Above Image and Table -->
           <div class="col-12">
-            <h3>Model Validation</h3>
+            <h4>Model Validation</h4>
             <p>The added temporal constraints can be confusing for beginners to understand, thus a model validation feature has been added to help correct users if they make an error in their model. The first way the validation feature works is by checking the user interface after every change made by the user, and using edge information to restrict what options the user has to change. This means that, rather than trying to throw an error if the user makes a mistake, the feature prevents the user from making a mistake in the first place. This can be seen in the way that the edge menu displays variables the user can change. These changeable variables are only available if they are relevant to the specific source and target nodes and type of lines.</p>
             <p>Edge options and their requirements are summarized in the table below. Additionally, the validation feature highlights invalid edge connections by displaying them in red and providing specific error messages when selected.</p>
           </div>
 
           <!-- Image and Table Side by Side -->
           <div class="col-lg-6 mb-3">
-            <img src="https://via.placeholder.com/600x400?text=Model+Validation" class="img-fluid rounded" alt="Model Validation">
+            <img src="/assets/img/valid.png" class="img-fluid rounded" alt="Model Validation">
           </div>
           <div class="col-lg-6">
             <h4>Edge Options and Their Requirements</h4>
@@ -322,7 +274,7 @@
         <div class="row align-items-center">
           <!-- Text on the Left -->
           <div class="col-lg-6 order-lg-2">
-            <img src="https://via.placeholder.com/600x400?text=Verbalization" class="img-fluid rounded" alt="Verbalization">
+            <img src="/assets/img/verb.png" class="img-fluid rounded" alt="Verbalization">
           </div>
           <!-- Text on the Right -->
           <div class="col-lg-6 order-lg-1">
@@ -342,13 +294,83 @@
       
     </div>
   </div>
-</section><!-- /Features Section -->
+
+
+  <section id="user-testing-results" class="user-testing-results section">
+    <div class="container" data-aos="fade-up">
+
+        <h3>User Testing Results</h3>
+        <p>Evaluating the effectiveness and usability of TRENDy compared to Draw.io through structured user testing. A total of 16 user tests were conducted, with 8 participants using the control tool (Draw.io) and 8 participants using TRENDy. The results indicate significant improvements in both efficiency and correctness, as using TRENDy resulted in a <strong>21.43% improvement in model correctness</strong> and a <strong>16.01% reduction in completion time</strong> compared to Draw.io.</p>
+        <div style="text-align: left;">
+          <ul>
+        <li><strong>Draw.io:</strong> Average Mark = 12.63/21 (60.12%), Average Time = 25 minutes 10 seconds</li>
+        <li><strong>TRENDy:</strong> Average Mark = 17.13/21 (81.55%), Average Time = 21 minutes 7 seconds</li>
+      </ul>
+      </div>
+
+      <!-- <div class="col-lg-12">
+        <h3>System Usability Scale (SUS)</h3>
+        <p>The System Usability Scale (SUS) was employed to evaluate the usability of both tools. Participants rated their experience on a scale of 0 to 100, with higher scores indicating better usability.</p>
+        <ul>
+          <li><strong>TRENDy:</strong> Average SUS Score = 73.4%</li>
+          <li><strong>Draw.io:</strong> Average SUS Score = 43.13%</li>
+        </ul>
+        <p>TRENDy significantly outperformed Draw.io in usability, demonstrating that users found TRENDy easier to use, better integrated, and less cumbersome.</p>
+      </div> -->
+      
+      <!-- Overall Performance -->
+      <div class="row gy-4">
+      
+        <!-- System Usability Scale (SUS) -->
+        <div class="col-lg-12">
+          <h3>System Usability Scale (SUS)</h3>
+          <p>The System Usability Scale (SUS) was employed to evaluate the usability of both tools. Participants rated their experience on a scale of 0 to 100, with higher scores indicating better usability.</p>
+          <ul>
+            <li><strong>TRENDy:</strong> Average SUS Score = 73.4%</li>
+            <li><strong>Draw.io:</strong> Average SUS Score = 43.13%</li>
+          </ul>
+          <p>TRENDy significantly outperformed Draw.io in usability, demonstrating that users found TRENDy easier to use, better integrated, and less cumbersome.</p>
+        </div>
+
+            <!-- Methods and Materials -->
+    <div class="row gy-4">
+      <div class="col-lg-12">
+        <h3>Methods and Materials</h3>
+        <p>The user testing aimed to assess TRENDy's performance and usability against the widely-used Draw.io tool. The study was conducted as follows:</p>
+        <ul>
+          <li><strong>Hosting and Access:</strong> TRENDy was publicly hosted on the Vercel platform and accessible <a href="https://trendy-blue.vercel.app/" target="_blank">here</a>.</li>
+          <li><strong>Control Tool:</strong> Draw.io (formerly diagrams.net) was selected as the control tool due to its popularity in conceptual data modeling.</li>
+          <li><strong>Participants:</strong> 16 user testers were recruited, comprising 8 participants for each tool. Participants were primarily computer science students familiar with ER modeling.</li>
+          <li><strong>Incentives:</strong> Participants received pizza upon completing the test to encourage participation.</li>
+          <li><strong>Materials Provided:</strong>
+            <ul>
+              <li><strong>Consent Form:</strong> Ensured informed participation and maintained user privacy by storing consent forms separately.</li>
+              <li><strong>Task-Based Questionnaire:</strong> Included three progressively challenging tasks based on controlled natural language specifications of TREND models.</li>
+              <li><strong>Feedback Form:</strong> Comprising the System Usability Scale (SUS) and additional feedback questions for TRENDy users.</li>
+              <li><strong>Resources on TREND:</strong> Provided explanations of TREND's concepts, including an appendix table of temporal ER elements and example models.</li>
+            </ul>
+          </li>
+          <li><strong>Procedure:</strong>
+            <ol>
+              <li>Participants signed the consent form.</li>
+              <li>They were randomly assigned to use either TRENDy or Draw.io.</li>
+              <li>Participants reviewed the introduction to TREND and the provided resources.</li>
+              <li>They completed three modeling tasks within a timed session.</li>
+              <li>Upon task completion, participants submitted their models and filled out the SUS questionnaire.</li>
+              <li>TRENDy users additionally provided qualitative feedback on their experience.</li>
+            </ol>
+          </li>
+          <li><strong>Evaluation:</strong> Models were marked for correctness based on predefined criteria, and SUS scores were calculated to compare usability between the two tools.</li>
+        </ul>
+      </div>
 
 
 <!-- Bar Chart Section -->
 <section id="chart-section" class="chart-section section">
   <div class="container" data-aos="fade-up">
     <div class="row justify-content-center">
+      <div style="text-align: center;"><h3>Results Visualized</h3></div>
+      
       <!-- Bar Chart Card -->
       <div class="col-lg-8">
         <div class="card mb-4">
@@ -608,6 +630,7 @@
   </div>
 </section><!-- /Scatter Plot Section -->
 
+</section><!-- /Services Section -->
 
     <!-- Services Section -->
     <section id="services" class="services section">
@@ -785,7 +808,7 @@ END;</code></pre>
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Deliverables</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p> -->
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -803,7 +826,7 @@ END;</code></pre>
               <a href="./assets/downloads/TRENDy Poster.png" class="stretched-link" download>
                 <h3>Project Poster</h3>
               </a>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+              <!-- <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p> -->
             </div>
           </div><!-- End Service Item -->
 
@@ -818,7 +841,7 @@ END;</code></pre>
               <a href="./assets/downloads/TRENDy Project Proposal.pdf" class="stretched-link" download>
                 <h3>Project Proposal</h3>
               </a>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
+              <!-- <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p> -->
             </div>
           </div><!-- End Service Item -->
 
@@ -833,7 +856,7 @@ END;</code></pre>
               <a href="/assets/downloads/TRENDy-Final Report.pdf" class="stretched-link" download>
                 <h3>Graphical Tool: Project Report</h3>
               </a>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
+              <!-- <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p> -->
             </div>
           </div><!-- End Service Item -->
 
@@ -848,7 +871,7 @@ END;</code></pre>
               <a href="/assets/downloads/MRXSTE013_Final.pdf" class="stretched-link" download>
                 <h3>Schema Generation: Project Report</h3>
               </a>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
+              <!-- <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p> -->
             </div>
           </div><!-- End Service Item -->
 
@@ -863,7 +886,7 @@ END;</code></pre>
               <a href="/assets/downloads/Graphical_Tool_Literature_Review.pdf" class="stretched-link" download>
                 <h3>Graphical Tool: Literature Review </h3>
               </a>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
+              <!-- <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p> -->
             </div>
           </div><!-- End Service Item -->
 
@@ -878,7 +901,7 @@ END;</code></pre>
               <a href="/assets/downloads/Schema_Literature_Review.pdf" class="stretched-link" download>
                 <h3>Schema Generation: Literature Review</h3>
               </a>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
+              <!-- <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p> -->
             </div>
           </div><!-- End Service Item -->
 
@@ -895,17 +918,17 @@ END;</code></pre>
   <footer id="footer" class="footer position-relative light-background">
     <div class="container">
       <h3 class="sitename">TRENDy</h3>
-      <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
-      <div class="social-links d-flex justify-content-center">
+      <p></p>
+      <!-- <div class="social-links d-flex justify-content-center">
         <a href="https://github.com/richietaylor/trendy"><i class="bi bi-github"></i></a>
         <a href=""><i class="bi bi-facebook"></i></a>
         <a href=""><i class="bi bi-instagram"></i></a>
         <a href=""><i class="bi bi-skype"></i></a>
         <a href=""><i class="bi bi-linkedin"></i></a>
-      </div>
+      </div> -->
       <div class="container">
         <div class="copyright">
-          <span>Copyright</span> <strong class="px-1 sitename">Stephan Maree</strong> <span>All Rights Reserved</span>
+          <span>Copyright</span> <strong class="px-1 sitename">Stephan Maree and Richard Taylor</strong> <span>All Rights Reserved</span>
         </div>
         <div class="credits">
           <!-- All the links in the footer should remain intact. -->
