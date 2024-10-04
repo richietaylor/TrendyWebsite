@@ -449,8 +449,17 @@
         <div class="grid-child purple">
             <h3>Algorithm</h3>
             <p>In order to convert from a TREND model to SQL code, the serialisation needs to be algorithmically processed into data structures representing the final tables.
-              The input of the program is a list of nodes and a list of edges, and these would need to be efficiently converted into objects which allow for writing SQL code. 
-            </p>
+              The input of the program is a list of nodes and a list of edges, and these would need to be efficiently converted into objects which are used for writing SQL code. 
+            </p><br>
+            <p>
+              The algorithm is divided into five components:
+              <li>Nodes Processing</li>
+              <li>Edge Processing</li>
+              <li>Relationship Processing</li>
+              <li>Inheritance Processing</li>
+              <li>Entity Sorting</li>
+            </p> <br>
+            <p>First, the nodes are processed and entity, attribute, relationship, and inheritance objects are made. The interactions between these are processed with the edges. The TREND temporal transitions are also found in this step.</p>
         </div>
         <div class="grid-child green">
             <h3>Temporal Tables/Triggers</h3>
