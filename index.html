@@ -96,49 +96,63 @@
           The structure of a temporal database can be modelled using a Temporal Conceptual Data Modelling Language (TCDML), however there isn't currently a standard language for modelling temporal databases.</p>
         
           <br>
-          <p>TREND explanation comes here!!!</p>
       </div><!-- End Section Title -->
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <img src="assets/img/Model1.png" class="img-fluid" alt="">
-          </div>
-          <div class="col-lg-8 content">
-            <h2>Subheading.</h2>
-            <p class="fst-italic py-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
-            <div class="row">
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>1 May 1995</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+123 456 7890</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>New York, USA</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>30</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Master</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>email@example.com</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
-            </div>
-            <p class="py-3">
-              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis.
-              Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque.
-            </p>
-          </div>
-        </div>
-
+      <!-- TREND Temporal Extensions Section -->
+<section id="temporal-extensions" class="temporal-extensions section">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h3>TREND</h3>
+      <p>Understanding how TREND handles temporal data is crucial for effective temporal conceptual data modeling. This section outlines the core constraints of dynamic extension and dynamic evolution, along with important notation distinctions used within TREND.</p>
+    </div>
+    
+    <!-- Core Constraints -->
+    <div class="row gy-4">
+      
+      <!-- Dynamic Extension -->
+      <div class="col-lg-12">
+        <!-- <h3>Dynamic Extension (EXT/ext)</h3> -->
+        <p>TREND implements its temporal extensions through the core constraints of dynamic extension and dynamic evolution. These constraints outline the primary ways in which temporal entities in a model can change over time.</p>
+        <!-- <p><strong>Dynamic Extension (EXT/ext):</strong> The extended entity remains an instance of the original entity. For example, an Employee may get promoted to Manager but still stays an Employee.</p> -->
       </div>
+      
 
-    </section><!-- /About Section -->
+      
+      <!-- Notation Distinctions -->
+      <div class="col-lg-12">
+        <!-- <h3>Notation Distinctions</h3> -->
+        <ul>
+          <li><strong>Dynamic Extension (EXT/ext):</strong> The extended entity remains an instance of the original entity. For example, an Employee may get promoted to Manager but still stays an Employee.</li>
+          <li><strong>Dynamic Evolution (CHG/chg):</strong> The extended entity is no longer the same instance as the entity it has extended from. For example, in a law firm, when an Article Clerk becomes a lawyer, it stops being an Article Clerk.</li>
+          <li><strong>Icons:</strong> Temporal entities are labeled with a clock icon, while atemporal entities (legacy ER/EER entities) are labeled without a clock.</li>
+          <li><strong>Mandatory or Optional:</strong> Mandatory temporal constraints (that must have occurred in the past or must occur in the future) are denoted by a solid line, and optional constraints (that may happen in the future or could’ve happened in the past) are denoted by a dashed line.</li>
+          <li><strong>Past or Future:</strong> If a temporal constraint is on a past condition, lowercase letters are used (i.e., chg, ext), and capital letters are used (i.e., CHG, EXT) for future constraints.</li>
+          <li><strong>Quantitative:</strong> If a constraint has a quantitative value attached to it (for example, an employee must have been an assistant-manager for 2 years before becoming a manager), that value is displayed in time chronon next to the constraint type.</li>
+        </ul>
+      </div>
+      
+      <!-- Figure 1: ER Diagram Extended by TREND -->
+      <div class="col-lg-12">
+        <!-- <h3>Figure 1: ER Diagram Extended by TREND</h3> -->
+        <div class="row align-items-center">
+          
+          <!-- Image Column -->
+          <div class="col-lg-6 mb-3">
+            <img src="https://via.placeholder.com/600x400?text=Figure+1:+ER+Diagram+Extended+by+TREND" class="img-fluid rounded" alt="Figure 1: ER Diagram Extended by TREND">
+          </div>
+          
+          <!-- Description Column -->
+          <div class="col-lg-6">
+            <p><strong>Left:</strong> ER diagram extended by TREND.</p>
+            <p>Objects that can change with time (such as an employee’s office) are labeled as temporal elements with the clock icon. Employees can potentially, over time, become managers, and to be a manager, they must have been an employee first. This is represented by past mandatory and future optional dynamic extensions, with the relationships also extended. A manager can also optionally become a Board Member over time, which is not an instance of a manager, thus represented by a future optional dynamic evolution. Note that no graphical modeling tool exists for TREND specifically, and this example was created manually without the help of a graph validator.</p>
+          </div>
+        
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section><!-- /TREND Temporal Extensions Section -->
 
     <!-- Graphical Tool Section -->
     <section id="portfolio" class="services section">
@@ -149,11 +163,11 @@
         <h2>Graphical Tool</h2>
       <h3>Problem</h3>
       <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        There exists a notable gap in specialized graphical modeling tools that effectively support temporal conceptual data modeling languages like TREND. Current tools, including ERD Tool, Crowd, and Draw.io, primarily cater to atemporal or general-purpose modeling needs and lack comprehensive features for integrating temporal elements and reasoning capabilities essential for accurate and efficient temporal model design. This deficiency hinders modelers' productivity, increases the likelihood of errors, and elevates the barrier to entry for both novice and experienced users, thereby impeding the adoption and advancement of temporal data modeling practices.
       </p> <br>
       <h3>Aim</h3>
       <p>
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        The primary aim of this project is to design and develop TRENDy, a dedicated graphical modeling tool tailored specifically for the TREND Temporal Conceptual Data Modelling Language. 
       </p> <br>
       <div class="grid-container">
         <div class="grid-child purple">
@@ -169,6 +183,167 @@
       </div><!-- End Section Title -->
 
     </section><!-- /Services Section -->
+
+<!-- Features Section -->
+<section id="features" class="features section">
+  <div class="container" data-aos="fade-up">
+    <div class="section-title">
+      <h2>Final Program Features</h2>
+      <p>This section contains a comprehensive list of final program features that were implemented to satisfy the design requirements.</p>
+    </div>
+    <div class="row gy-4 justify-content-center">
+      
+      <!-- Feature 4.2.1 Infinitely Expanding Canvas -->
+      <div class="col-lg-12">
+        <h3>Infinitely Expanding Canvas</h3>
+        <p>As a space to build your models, an infinitely expanding canvas has been added, where nodes and edges can be dropped, moved, and edited. Basic zooming and panning functionalities have also been added to navigate the canvas.</p>
+      </div>
+
+      <!-- Feature 4.2.2 Dragging and Dropping of TREND Compatible Objects -->
+      <div class="col-lg-12">
+        <h3>Dragging and Dropping of TREND Compatible Objects</h3>
+        <p>As part of implementing the conceptual data modelling functionality, a shape node palette has been added. This contains all the necessary entities, attributes, and relationships you need to model in TREND. An advantage of this palette over the palettes of alternative tools is that there is no way to add objects that are not part of TREND. This restriction prevents many user errors.</p>
+      </div>
+
+      <!-- Feature 4.2.3 Resizing and Renaming of Nodes -->
+      <div class="col-lg-12">
+        <h3>Resizing and Renaming of Nodes</h3>
+        <p>Once a node has been added to the canvas, you can change the label of the node to give it your desired name. Additionally, if your label is too long for the node, you can resize the node to your liking too.</p>
+      </div>
+
+      <!-- Feature 4.2.4 Ability to Connect Objects -->
+      <div class="col-lg-12">
+        <h3>Ability to Connect Objects</h3>
+        <p>Each object added to the screen has 4 drag handles (top, bottom, left, and right). When dragging from one of these drag handles to another, an edge is made to connect these objects together.</p>
+        <p>When selecting an edge, an edge option menu is displayed. This menu has all the necessary options to customize the edge to any edge the user desires in the TREND language. There are three main edge types: Atemporal (default), temporal, and subsumption. After selecting an edge type, the user then has access to other options to further customize their line (e.g., cardinality and persistence).</p>
+      </div>
+
+      <!-- Feature 4.2.5 Schema Generation Tool -->
+      <div class="col-lg-12">
+        <h3>Schema Generation Tool</h3>
+        <p>This feature needed to be able to convert the models we have developed in the user interface directly into a database schema. This feature was actually developed by my project partner, Stephan Maree, so for this tool, integration with the schema generation tool was necessary. A button called "Schema Generation" is added to the UI, and when pressed, it sends a JSON object with the nodes and edges serialization (described in the design section) to the schema generation tool, which then controls the conversion and downloads the schema for the user. Since our tool used almost identical serializations, the JSON object can be used by the schema generation tool with little processing done on the receiver side.</p>
+      </div>
+
+      <!-- Feature 4.2.6 Saving and Loading of Models -->
+      <div class="col-lg-12">
+        <h3>Saving and Loading of Models</h3>
+        <p>Due to the Model-View-Controller design of this tool, the model information is independent from the rest of the code. This allows the program to add the ability to load and save models. When clicking the Save button, the tool creates a JSON object and saves it to the user’s computer. When clicking the Browse button, the user is given a prompt to select the file they would like to upload, and then the tool loads in the JSON object to the canvas. If the model that is uploaded to the program has an incorrect format (i.e., it was edited outside of the graphical tool), then the tool will do its best to display as many correctly formatted objects on-screen as possible, and displays a relevant error to the user.</p>
+      </div>
+
+      <!-- Feature 4.2.7 State Management -->
+      <div class="col-lg-12">
+        <h3>State Management</h3>
+        <p>To implement the undo and redo functionalities requirements, a state management system has been implemented. This gives the user the ability to undo and redo actions done in your model, including but not limited to: resizing, adding elements, editing labels, and changing features about an edge. The main strategy in implementing this surrounds the <code>takeSnapshot()</code> function in the UndoRedo class. After the model is changed (e.g., label name is changed, edge is added, edge is changed), the model state is saved as a snapshot, and using the <code>CTRL+Z</code> and <code>CTRL+Y</code> shortcuts navigates us between these snapshots. This strategy works as the serialization has a very small file size, thus multiple snapshots can be easily stored without any storage or performance concerns.</p>
+      </div>
+
+      <!-- Feature 4.2.8 Full Keyboard Shortcut Support -->
+      <div class="col-lg-12">
+        <h3>Full Keyboard Shortcut Support</h3>
+        <p>Shortcut support is not natively supported in the ReactFlow library, so they had to be manually implemented. Shortcuts for features of deleting elements (<code>DEL</code>), saving files (<code>CTRL+S</code>), selecting all elements (<code>CTRL+A</code>), copying selected elements (<code>CTRL+C</code>), cutting selected elements (<code>CTRL+X</code>), pasting copied elements (<code>CTRL+V</code>), undo (<code>CTRL+Z</code>), and redo (<code>CTRL+Y</code>) were implemented. These shortcuts were purposely chosen as they are commonplace amongst most computer tools, thus there would be an expectation from the user for them to be supported.</p>
+        <p>Additionally, this meant the user would not have to learn the shortcuts, and instead discover them naturally, lowering the time taken to learn the tool. Deletion created a unique bug, as when nodes were deleted, the IDs of nodes could potentially be duplicates, and this caused problems for Stephan’s project, and occasionally some visual bugs. This meant that the management of IDs for nodes had to be rethought so that they were always unique.</p>
+      </div>
+
+      <!-- Feature 4.2.9 Exporting Models -->
+      <div class="col-lg-12">
+        <h3>Exporting Models</h3>
+        <p>As requested by our experienced modelers, the ability to export our models as screenshots was added to the tool. An "Export" button triggers this feature.</p>
+      </div>
+
+      <!-- Feature 4.2.10 Model Validation -->
+      <div class="col-lg-12 mb-5">
+        <div class="row align-items-start">
+          <!-- Text Above Image and Table -->
+          <div class="col-12">
+            <h3>Model Validation</h3>
+            <p>The added temporal constraints can be confusing for beginners to understand, thus a model validation feature has been added to help correct users if they make an error in their model. The first way the validation feature works is by checking the user interface after every change made by the user, and using edge information to restrict what options the user has to change. This means that, rather than trying to throw an error if the user makes a mistake, the feature prevents the user from making a mistake in the first place. This can be seen in the way that the edge menu displays variables the user can change. These changeable variables are only available if they are relevant to the specific source and target nodes and type of lines.</p>
+            <p>Edge options and their requirements are summarized in the table below. Additionally, the validation feature highlights invalid edge connections by displaying them in red and providing specific error messages when selected.</p>
+          </div>
+
+          <!-- Image and Table Side by Side -->
+          <div class="col-lg-6 mb-3">
+            <img src="https://via.placeholder.com/600x400?text=Model+Validation" class="img-fluid rounded" alt="Model Validation">
+          </div>
+          <div class="col-lg-6">
+            <h4>Edge Options and Their Requirements</h4>
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Edge Option</th>
+                    <th>Requirements for Rendering</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Edge Type</td>
+                    <td>Always displayed</td>
+                  </tr>
+                  <tr>
+                    <td>Optional</td>
+                    <td>Edge is type temporal or atemporal</td>
+                  </tr>
+                  <tr>
+                    <td>Cover</td>
+                    <td>Edge is type subsumption</td>
+                  </tr>
+                  <tr>
+                    <td>Edge Label</td>
+                    <td>Edge is type temporal</td>
+                  </tr>
+                  <tr>
+                    <td>Quantitative</td>
+                    <td>Edge is type temporal and source and target nodes are both entities (Quantitative)</td>
+                  </tr>
+                  <tr>
+                    <td>Value</td>
+                    <td>Quantitative is set to True</td>
+                  </tr>
+                  <tr>
+                    <td>Persistent</td>
+                    <td>Edge is type temporal, target not is type relationship and source node is type entity</td>
+                  </tr>
+                  <tr>
+                    <td>Cardinality (target node side)</td>
+                    <td>Edge Type is atemporal</td>
+                  </tr>
+                  <tr>
+                    <td>Cardinality (target node side)</td>
+                    <td>Edge Type is atemporal, target not is type entity and source node is type relationship</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 4.2.11 Verbalization -->
+      <div class="col-lg-12 mb-5">
+        <div class="row align-items-center">
+          <!-- Text on the Left -->
+          <div class="col-lg-6 order-lg-2">
+            <img src="https://via.placeholder.com/600x400?text=Verbalization" class="img-fluid rounded" alt="Verbalization">
+          </div>
+          <!-- Text on the Right -->
+          <div class="col-lg-6 order-lg-1">
+            <h3>Verbalization</h3>
+            <p>When determining the preferred representation of temporal constraints in conceptual data models, it was concluded that there was no clear favorite representation (when comparing graphical and textual representations), thus a multi-modal interface was suggested, to allow the switching between graphical notation and natural language. Since our tool is already graphical, this necessitates a feature which can represent our temporal constraints using natural language.</p>
+            <p>To implement this feature, inspiration has been drawn from NORMA. NORMA is a software tool that implements the Object-Role Modelling (ORM) language. The ORM schemas are represented in a graphical notation; however, an additional feature called the ORM verbalization browser has been added, which represents the ORM schema in natural language to aid the user’s understanding about the schema. This feature has inspired the verbalization feature for this tool.</p>
+            <p>When a temporal edge is selected, the bottom left of the screen displays the natural language representation of the edge. Additionally, when selecting a node, a natural language description of that node is also displayed. The feature works by using the type of edge, the source and target node, the variables attached to the edge, and the time quanta global variable. The specific natural language representation was taken from the supplementary material from [14]. For experienced modelers who find the feature distracting, this feature can also be disabled in the Leva control panel.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 4.2.12 Other UI View-port Features -->
+      <div class="col-lg-12">
+        <h3>Other UI View-port Features</h3>
+        <p>Other UI features were added to the canvas to assist modelers. This includes zoom controls, the ability to lock the canvas, fit-to-screen (this button will center the screen on your model), a mini-map in the bottom right-hand corner to keep modelers oriented on the canvas. Additionally, the ability to lock the canvas, thus allowing the user to pan over it without accidentally moving something has been added too. Lastly, some global UI movement options have been added to the Leva control panel; snap-to-grid, pan-on-scroll, and zoom-on-double-click.</p>
+      </div>
+      
+    </div>
+  </div>
+</section><!-- /Features Section -->
+
 
 <!-- Bar Chart Section -->
 <section id="chart-section" class="chart-section section">
@@ -763,6 +938,12 @@ END;</code></pre>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- <script>
+    window.addEventListener('load', function() {
+      window.scrollTo(0, 0);
+    });
+  </script> -->
 
 </body>
 
